@@ -10,7 +10,12 @@ A trace is a description or visualization which shows how a request flows throug
 
 ![Google Chrome waterfall chart](https://github.com/pmoorey/articles/blob/master/img/tracing/chrome-waterfall.png)
 
-## What compontents are involved in tracing?
+## What components are involved in tracing?
+
+Tracing is enabled in the source code of an application.  A popular library for tracing is OpenCensus, which originated from an internal Google product called Census.  It integrates with various programming langauges, with support for exporting to various backends including Google StackDriver, Prometheus, SignalFx and Zipkin. 
+
+_Example tracing architecture diagram_ 
+![Tracing architecture diagram](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-architecture.png)
 
 ## Tracing for IT automation processes
 
@@ -23,3 +28,5 @@ A typical script may involve the several stages:
 - Analyze data in both systems
 - Perform CRUD operations in IT system (multiple iterations)
 - Generate report of changes
+
+In this example 
