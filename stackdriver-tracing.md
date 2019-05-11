@@ -8,6 +8,7 @@ This article will explain how you can do this, using OpenCensus and StackDriver 
 
 A trace is a description or visualization which shows how a request flows through the various components of a system.  It typically includes data like processing time (latency) at various stages, enabling a waterfall view of the complete processing time, similar to the view provided by developer tools within a web browser like Google Chrome.
 
+_Waterfall chart in Chrome developer tools is conceptually similar_
 ![Google Chrome waterfall chart](https://github.com/pmoorey/articles/blob/master/img/tracing/chrome-waterfall.png)
 
 ## What components are involved in tracing?
@@ -19,9 +20,9 @@ _Example tracing architecture diagram_
 
 ## Tracing for IT automation processes
 
-I frequently develop software solutions to automate IT processes in the domain of computer networking.  I explored how I can gain visibility into the performance and reliability of the automation using tracing.  This enables me to be alerted when a problem occurs with a particular process, such as a failure or performance change.
+I frequently develop software solutions to automate IT processes in the domain of computer networking.  This led to me explore how I can gain visibility into the performance and reliability of the automation using tracing.  Using tracing enabled alerting if a problem occurs with a particular process, such as a failure or performance change.
 
-A typical script may involve the several stages:
+A typical automation process may involve the several stages, for example:
 
 - Retrieve data from master data source
 - Retrieve data from IT system
