@@ -18,6 +18,11 @@ Tracing is enabled in the source code of an application.  A popular library for 
 _Example tracing architecture diagram_ 
 ![Tracing architecture diagram](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-architecture.png)
 
+A trace represents a single request as it flows through a system.  A trace includes one or more 'spans', a span represents a single operation in a trace, for example a database query, HTTP request to an API, or function within the application.
+
+_Example trace_ 
+![Tracing architecture diagram](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-example.png)
+
 ## Tracing for IT automation processes
 
 I frequently develop software solutions to automate IT processes in the domain of computer networking.  This led to me explore how I can gain visibility into the performance and reliability of the automation using tracing.  Using tracing enabled alerting if a problem occurs with a particular process, such as a failure or performance change.
