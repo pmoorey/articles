@@ -1,4 +1,4 @@
-# Software Tracing with OpenCensus and Google Cloud/StackDriver
+# Software Tracing with OpenCensus and Google Cloud StackDriver
 
 ## Overview
 *Wouldn't it be useful to easily identify the bottleneck in your web application, or processes?  Even better, be alerted when there is a change in the baseline performance?  Perhaps you are a Site Reliability Engineer (SRE) and need a Service Level Indicator (SLI) to determine if customers expectations are being met?* 
@@ -117,19 +117,21 @@ if __name__ == '__main__':
 
 After executing the script the first trace is now visible in StackDriver Trace in Google Cloud.  As you can see, the parent span is named 'it-process', followed by child spans of 'it-process/get-master-data', 'it-process/get-it-system-data' etc.  
 
-This chart highlights each operation in the script, with the processing time.
+_Chart highlighting each operation in the script, with processing times_
 
 ![Google Cloud trace waterfall](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-waterfall.png)
 
 **Scatter graph**
 
-The scatter graph is useful for spotting outliers, where an operation has taken a longer than usual time to process.  In the graph there is clearly an issue around 9.54pm.  Selecting the data point will display the waterfall chart, along with the operation which introduced the delay.
+A scatter graph is useful for spotting outliers, where an operation has taken a longer than usual time to process.  In the graph there is clearly an issue around 9.54pm.  Selecting the data point will display the waterfall chart, along with the operation which introduced the delay.
 
+_Scatter graph showing requests by response time_
 ![Google Cloud trace scatter graph](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-scatter-graph.png)
 
 **Analysis Report**
 
 You can create customized reports to gain insights into your trace data, for example viewing percentage of traces by distribution of response time.
 
+_Screenshot of custom trace analysis report_
 ![Google Cloud trace report](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-report.png)
 
