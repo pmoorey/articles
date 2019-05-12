@@ -44,7 +44,7 @@ The following items are required to implement the solution:
 - Source code (the process to enable tracing for)
 
 ### Google Cloud Project and service account
-The Google Cloud project is used to store and visualize trace data sent by the OpenCensus libraries, as well as create metrics and reports. You can request a personal Google Cloud account with limited free credits.  Create a service account and assign the 'Cloud Trace Agent' Identity and Access Management (IAM) role.  Create and download a key; this JSON file will be used by OpenCensus to authenticate to the Google Cloud project.  Refer to https://cloud.google.com/docs/authentication/getting-started for a guide to authenticating to Google Cloud.
+The Google Cloud project is used to store and visualize trace data sent by the OpenCensus libraries, as well as create metrics and reports. You can test this yourself by signing up for a personal Google Cloud account, which includes a free credit.  Create a service account and assign the 'Cloud Trace Agent' Identity and Access Management (IAM) role.  Create and download a key; this JSON file will be used by OpenCensus to authenticate to the Google Cloud project.  Refer to https://cloud.google.com/docs/authentication/getting-started for a guide to authenticating to Google Cloud.
 
 ### Python libaries for OpenCensus
 
