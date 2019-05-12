@@ -26,9 +26,9 @@ _Example trace for a web request, which includes multiple spans for various oper
 
 ## Enabling traces for IT automation processes
 
-I frequently develop software solutions to automate IT processes in the domain of computer networking.  This led to me explore how I can gain visibility into the performance and reliability of automation.  Traces can be used to trigger alerts if a problem occurs within a particular process, such as a failure or performance change.
+I frequently develop software solutions to automate IT processes in the domain of computer networking.  This led to me explore how I can gain visibility into the performance and reliability of automation.
 
-A typical automation process may involve the several stages, for example:
+A typical automation process may involve the several operations, for example:
 - Retrieving data from a master data source
 - Retrieving data from an IT system
 - Comparing data in both systems
