@@ -72,6 +72,7 @@ from opencensus.common.transports.async_ import AsyncTransport
 from opencensus.ext.stackdriver import trace_exporter as stackdriver_exporter
 from opencensus.trace import tracer as tracer_module
 
+
 def get_master_data():
     # create the first child span, everything executing within the function is measured
     with tracer.span(name="/it-process/get-master-data") as span:
