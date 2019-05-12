@@ -117,7 +117,7 @@ if __name__ == '__main__':
 
 After executing the script the first trace is now visible in StackDriver Trace in Google Cloud.  As you can see, the parent span is named 'it-process', followed by child spans of 'it-process/get-master-data', 'it-process/get-it-system-data' etc.  
 
-This chart highlight each operation in script, along with the time taken.
+This chart highlights each operation in the script, with the processing time.
 
 ![Google Cloud trace waterfall](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-waterfall.png)
 
