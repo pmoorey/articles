@@ -14,12 +14,12 @@ _The waterfall chart in Chrome developer tools is visually similar_
 
 ## What components are involved in tracing?
 
-Tracing is typically enabled by within the source code of an application, or activated via middleware.  A popular tracing library is <a href="http://opencensus.io">OpenCensus</a> which originated from a Google internal library called Census.  OpenCensus integrates with various programming langauges and includes the ability to export traces to various backends including Google StackDriver, Prometheus, SignalFx and Zipkin. 
+Tracing is typically enabled by within the source code of an application, or activated via middleware.  A popular tracing library is <a href="http://opencensus.io">OpenCensus</a> which originated from a Google internal library called Census.  OpenCensus integrates with various programming langauges and includes the ability to export traces to various external systems including Google StackDriver, Prometheus, SignalFx and Zipkin. 
 
 _Sample architecture diagram for tracing_ 
 ![Tracing architecture diagram](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-architecture.png)
 
-A trace represents a single request as it flows through a system, it includes one parent span, and optionally one or more child spans.  A span represents a measurement of one or more operations in a trace, for example an operation (span) could be a database query, HTTP request to an API, or function within the source code.
+A trace represents a single request as it flows through a system, it includes one parent span, and optionally one or more child spans.  A span represents a measurement of one or more operations in a trace, for example an operation (span) could encompass a database query, HTTP request to an API, or function within the source code.
 
 _Example trace for a web request, which includes multiple spans for various operations_ 
 ![Tracing architecture diagram](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-example.png)
@@ -35,7 +35,7 @@ A typical automation process may involve the several stages, for example:
 - Performing multiple create/read/update/delete (CRUD) operations in IT system
 - Generating a report of changes
 
-The following section demonstrates how to enabling tracing within a simple Python script, including sending traces to StackDriver in Google Cloud Platform (GCP).
+The following section demonstrates how to enabling tracing within a simple Python script, including exporting traces to StackDriver in Google Cloud.
 
 ### Prerequisites
 The following items are required to implement the solution:
@@ -128,7 +128,7 @@ if __name__ == '__main__':
 
 **Waterfall chart**
 
-After executing the script a first trace will immediately be visible in the StackDriver Trace section of Google Cloud.  As you can see, the parent span is named 'it-process', followed by child spans of 'it-process/get-master-data', 'it-process/get-it-system-data' etc.  
+After executing the script the trace will immediately be visible in the StackDriver Trace section of Google Cloud.  As you can see, the parent span is named 'it-process', followed by child spans of 'it-process/get-master-data', 'it-process/get-it-system-data' etc.  
 
 _Chart highlighting each operation in the script, with processing times_
 
