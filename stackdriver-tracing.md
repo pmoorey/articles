@@ -56,7 +56,7 @@ pip install opencensus-ext-stackdriver
 
 ### Sample source code
 
-Import the Python modules required to collect traces and export data to StackDriver
+Below is an example of how OpenCensus has been integrated into an existing script.  The key point is that any code nested under ```with tracer.span(name="name of span") as span:``` will contribute to the span measurement.  As the code is processed by the Python interpreter, the first instance of a span will be the parent, any further instances will be child spans.  The name of the span is arbitrary, but I chose a URI convention to illustrate the structure of the automation process.
 
 ```python
 # import OpenCensus modules
@@ -109,10 +109,18 @@ if __name__ == '__main__':
         generate_report(results)
 ```
 
+### Google Cloud StackDriver Trace
 
-![Google Cloud trace scatter graph](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-scatter-graph.png)
+**Waterfall chart**
+After executing the script the first trace is now visible in StackDriver Trace in Google Cloud.  As you can see, the parent process is named 'it-process', followed by 'it-process/get-master-data', 'it-process/get-it-system-data' etc.  This chart highlight each operation in script, along with the time taken.
 
 ![Google Cloud trace waterfall](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-waterfall.png)
 
+**Scatter graph**
+The scatter graph is useful for spotting outliers, where an operation has taken a longer than usual time to process.  In the graph there is clearly an issue around 9.54pm.  Selecting the data point will display the waterfall chart, along with the operation which introduced the delay.
+![Google Cloud trace scatter graph](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-scatter-graph.png)
 
+
+
+![Google Cloud trace report](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-report.png)
 
