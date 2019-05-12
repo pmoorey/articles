@@ -65,28 +65,28 @@ from opencensus.ext.stackdriver import trace_exporter as stackdriver_exporter
 from opencensus.trace import tracer as tracer_module
 
 def get_master_data()
-   # creates first child span, everything executing within the function is measured
-   with tracer.span(name="/it-process/get-master-data") as span:
-       data = some_function_to_get_master_data()
-   return data
+    # creates first child span, everything executing within the function is measured
+    with tracer.span(name="/it-process/get-master-data") as span:
+        data = some_function_to_get_master_data()
+    return data
 
 def get_it_system_data()
-   # creates second child span, everything executing within the function is measured
-   with tracer.span(name="/it-process/get-it-system-data") as span:
-       data = some_function_to_get_it_system_data()
-   return data
+    # creates second child span, everything executing within the function is measured
+    with tracer.span(name="/it-process/get-it-system-data") as span:
+        data = some_function_to_get_it_system_data()
+    return data
 
 def sync_data(master_data, it_system_data)
-   results = []
-   for item in data:
-       # creates third child span for each item, everything executed in the block below is measured
-       with tracer.span(name="/it-process/sync-data") as span:
-           response = some_function_to_sync_data()
-           results.append(response)
+    results = []
+    for item in data:
+        # creates third child span for each item, everything executed in the block below is measured
+        with tracer.span(name="/it-process/sync-data") as span:
+            response = some_function_to_sync_data()
+            results.append(response)
            
-           # create an annotation to show what item is being processed
-           span.add_annotation("processing item {}".format(item))
-   return results
+            # create an annotation to show what item is being processed
+            span.add_annotation("processing item {}".format(item))
+    return results
 
 def generate_report(results)
     # creates fourth child span for each item, everything executed in the block below is measured
