@@ -83,14 +83,16 @@ def sync_data(master_data, it_system_data)
        return data
 
 def generate_report(results)
-   # creates fourth child span, everything executing within the function is measured
    report = []
    for item in data:
+       # creates fourth child span for each item, everything executed in the block below is measured
        with tracer.span(name="/it-process/get-master-data") as span:
            response = some_function_to_generate_report(item)
+           report.append(response)
+           
            # create an annotation to show what item is being processed
            span.add_annotation("processing item {}".format(item))
-           report.append(response)
+           
    return report
 
 
