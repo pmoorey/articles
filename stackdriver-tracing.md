@@ -110,7 +110,9 @@ if __name__ == '__main__':
 ```
 
 
+![Google Cloud trace scatter graph](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-scatter-graph.png)
 
+![Google Cloud trace waterfall](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-waterfall.png)
 
 
 
