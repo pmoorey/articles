@@ -32,7 +32,7 @@ A typical automation process may involve the several operations, for example:
 - Retrieving data from a master data source
 - Retrieving data from an IT system
 - Comparing data in both systems
-- Performing multiple create/read/update/delete (CRUD) operations in IT system
+- Performing multiple create/read/update/delete (CRUD) operations in an IT system
 - Generating a report of changes
 
 The following section demonstrates how to enabling tracing within a simple Python script, including exporting traces to StackDriver in Google Cloud.
