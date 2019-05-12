@@ -1,41 +1,41 @@
-# Tracing and Metrics with OpenCensus and Google Cloud/StackDriver
+# Software Tracing with OpenCensus and Google Cloud/StackDriver
 
 ## Overview
 *Wouldn't it be useful to easily identify the bottleneck in your web application, or processes?  Even better, be alerted when there is a change in the baseline performance?  Perhaps you are a Site Reliability Engineer (SRE) and need a Service Level Indicator (SLI) to determine if customers expectations are being met?.* 
 
 This article will explain how you can do this, using OpenCensus and StackDriver tracing within Google Cloud.
 
-## What is tracing anyway?
+## What is tracing?
 
-A trace is a description or visualization which shows how a request flows through the various components of a system.  It typically includes data such as processing time (latency) at various stages.  This enables a waterfall view of the processing times, similar to the view provided by developer tools within a web browser like Google Chrome.
+A trace is a description or visualization showing how a request flows through the various components of a system.  It typically includes data such as processing time (latency) at various stages.  A trace visualization provides a waterfall view of the processing times, similar to the view provided by developer tools within a web browser like Google Chrome.
 
-_The waterfall chart in Chrome developer tools is conceptually similar to a trace_
+_The waterfall chart in Chrome developer tools is visually similar to a trace_
 ![Google Chrome waterfall chart](https://github.com/pmoorey/articles/blob/master/img/tracing/chrome-waterfall.png)
 
 ## What components are involved in tracing?
 
-Tracing is enabled within the source code of an application.  A popular tracing library is OpenCensus which originated from Google's internal product called Census.  It integrates with various programming langauges and includes support for exporting traces to various backends including Google StackDriver, Prometheus, SignalFx and Zipkin. 
+Tracing is enabled within the source code of an application.  A popular tracing library is OpenCensus which originated from Googles internal product called Census.  It integrates with various programming langauges and includes the ability to export traces to various backends including Google StackDriver, Prometheus, SignalFx and Zipkin. 
 
 _Sample architecture diagram for tracing_ 
 ![Tracing architecture diagram](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-architecture.png)
 
-A trace represents a single request as it flows through a system, it includes one parent 'span', and optionally one or more child spans.  A span represents one or more operations in a trace, for example a database query, HTTP request to an API, or function within the source code.
+A trace represents a single request as it flows through a system, it includes one parent 'span', and optionally one or more child spans.  A span represents one or more operations in a trace, for example an operation could be a database query, HTTP request to an API, or function within the source code.
 
 _Example trace for a web request, which includes multiple spans for various operations_ 
 ![Tracing architecture diagram](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-example.png)
 
 ## Tracing for IT automation processes
 
-I frequently develop software solutions to automate IT processes in the domain of computer networking.  This led to me explore how I can gain visibility into the performance and reliability of the automation using tracing.  Tracing enables alerting if a problem occurs with a particular process, such as a failure or performance change.
+I frequently develop software solutions to automate IT processes in the domain of computer networking.  This led to me explore how I can gain visibility into the performance and reliability of the automation using tracing.  Tracing can be used to create alerts if a problem occurs with a particular process, such as a failure or performance change.
 
 A typical automation process may involve the several stages, for example:
-- Retrieving data from master data source
-- Retrieving data from IT system
-- Analyzing data in both systems
-- Performing CRUD operations in IT system (multiple iterations)
-- Generating report of changes
+- Retrieving data from a master data source
+- Retrieving data from an IT system
+- Comparing data in both systems
+- Performing multiple CRUD operations in IT system
+- Generating a report of changes
 
-I'll show how to enabling tracing for an IT process within a simple Python script, including sending traces to StackDriver in Google Cloud Platform (GCP) and creating metrics.
+The following section demonstrates how to enabling tracing within a simple Python script, including sending traces to StackDriver in Google Cloud Platform (GCP).
 
 ### Prerequisites
 The following items are required to implement the solution:
@@ -44,7 +44,7 @@ The following items are required to implement the solution:
 - Source code (the process to enable tracing for)
 
 ### Google Cloud Project and service account
-The Google Cloud project is used to store and visualize trace data sent by the OpenCensus libraries, as well as create metrics and reports. You can request a personal Google Cloud account with limited free credits.  Create a service account and assign the 'Cloud Trace Agent' Identity and Access Management (IAM) role.  Create and download a key; this JSON file will be used by OpenCensus to authenticate to the Google Cloud project.
+The Google Cloud project is used to store and visualize trace data sent by the OpenCensus libraries, as well as create metrics and reports. You can request a personal Google Cloud account with limited free credits.  Create a service account and assign the 'Cloud Trace Agent' Identity and Access Management (IAM) role.  Create and download a key; this JSON file will be used by OpenCensus to authenticate to the Google Cloud project.  Refer to https://cloud.google.com/docs/authentication/getting-started for a guide to authenticating to Google Cloud.
 
 ### Python libaries for OpenCensus
 
@@ -54,9 +54,11 @@ pip install opencensus
 pip install opencensus-ext-stackdriver
 ```
 
+To learn more about OpenCensus visit http://opencensus.io.
+
 ### Sample source code
 
-Below is an example of how OpenCensus has been integrated into an existing script.  The key point is that any code nested under ```with tracer.span(name="name of span") as span:``` will contribute to the span measurement.  As the code is processed by the Python interpreter, the first instance of a span will be the parent, any further instances will be child spans.  The name of the span is arbitrary, but I chose a URI convention to illustrate the structure of the automation process.
+Below is an example of how OpenCensus has been integrated into an existing script.  A key point is that any code nested under ```with tracer.span(name="name of span") as span:``` will contribute to the span measurement.  As the code is processed by the Python interpreter, the first instance of a span will be the parent, any further instances will be considered child spans.  The name of the span is arbitrary, but I chose a URI convention to illustrate the structure/flow of the automation process.
 
 ```python
 # import OpenCensus modules
@@ -113,7 +115,9 @@ if __name__ == '__main__':
 
 **Waterfall chart**
 
-After executing the script the first trace is now visible in StackDriver Trace in Google Cloud.  As you can see, the parent process is named 'it-process', followed by 'it-process/get-master-data', 'it-process/get-it-system-data' etc.  This chart highlight each operation in script, along with the time taken.
+After executing the script the first trace is now visible in StackDriver Trace in Google Cloud.  As you can see, the parent span is named 'it-process', followed by child spans of 'it-process/get-master-data', 'it-process/get-it-system-data' etc.  
+
+This chart highlight each operation in script, along with the time taken.
 
 ![Google Cloud trace waterfall](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-waterfall.png)
 
