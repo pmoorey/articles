@@ -1,25 +1,25 @@
 # Software Tracing with OpenCensus and Google Cloud StackDriver
 
 ## Overview
-*Wouldn't it be useful to easily identify the bottleneck in your web application, or processes?  Even better, be alerted when there is a change in the baseline performance?  Perhaps you are a Site Reliability Engineer (SRE) and need a Service Level Indicator (SLI) to determine if customers expectations are being met?* 
+*Wouldn't it be useful to easily identify the bottleneck in your application, or processes?  Even better, be alerted when there is a change in the baseline performance?  Perhaps you are a Site Reliability Engineer (SRE) and need a Service Level Indicator (SLI) to determine if customers expectations are being met?* 
 
-This article will explain how you can do this, using OpenCensus and StackDriver tracing within Google Cloud.
+This article will explain how you can achieve this, using OpenCensus and StackDriver tracing within Google Cloud.
 
-## What is tracing?
+## What is a trace?
 
-A trace is a description or visualization showing how a request flows through the various components of a system.  It typically includes data such as processing time (latency) at various stages.  A trace visualization provides a waterfall view of the processing times, similar to the view provided by developer tools within a web browser like Google Chrome.
+A trace is a description or visualization showing how a request flows through the various components of a system.  It typically includes data such as processing time (latency) at various stages.  A trace visualization provides a waterfall view of the processing times, similar to those provided by developer tools within a web browser like Google Chrome.
 
-_The waterfall chart in Chrome developer tools is visually similar to a trace_
+_The waterfall chart in Chrome developer tools is visually similar_
 ![Google Chrome waterfall chart](https://github.com/pmoorey/articles/blob/master/img/tracing/chrome-waterfall.png)
 
 ## What components are involved in tracing?
 
-Tracing is enabled within the source code of an application.  A popular tracing library is OpenCensus which originated from Googles internal product called Census.  It integrates with various programming langauges and includes the ability to export traces to various backends including Google StackDriver, Prometheus, SignalFx and Zipkin. 
+Tracing is typically written in the source code of an application, or enabled via middleware.  A popular tracing library is OpenCensus which originated from a Google internal library called Census.  OpenCensus integrates with various programming langauges and includes the ability to export traces to various backends including Google StackDriver, Prometheus, SignalFx and Zipkin. 
 
 _Sample architecture diagram for tracing_ 
 ![Tracing architecture diagram](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-architecture.png)
 
-A trace represents a single request as it flows through a system, it includes one parent 'span', and optionally one or more child spans.  A span represents one or more operations in a trace, for example an operation could be a database query, HTTP request to an API, or function within the source code.
+A trace represents a single request as it flows through a system, it includes one parent 'span', and optionally one or more child spans.  A span represents one or more operations in a trace, for example an operation (span) could be a database query, HTTP request to an API, or function within the source code.
 
 _Example trace for a web request, which includes multiple spans for various operations_ 
 ![Tracing architecture diagram](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-example.png)
