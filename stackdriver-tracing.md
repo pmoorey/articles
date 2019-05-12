@@ -7,7 +7,7 @@ This article will demonstrate how you can achieve this, using OpenCensus and Sta
 
 ## What is a trace?
 
-A trace is a description or visualization showing how a request flows through the various components of a system.  It typically includes data such as processing time (latency) at various stages.  A trace visualization provides a waterfall view of the processing times, visually similar to those provided by developer tools within a web browser like Google Chrome, but using a different source of data.
+A trace is a dataset which describes how a request flows through the various components of a system.  It typically includes data such as processing time (latency) at various stages.  A waterfall view can be used to visualize processing times,  similar to that provided by developer tools within a web browser like Google Chrome, but using a different source of data.
 
 _The waterfall chart in Chrome developer tools is visually similar_
 ![Google Chrome waterfall chart](https://github.com/pmoorey/articles/blob/master/img/tracing/chrome-waterfall.png)
