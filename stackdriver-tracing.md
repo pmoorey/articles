@@ -1,7 +1,7 @@
 # Automation performance insights with OpenCensus and Google Cloud StackDriver
 
 ## Overview
-*Wouldn't it be great if you can easily identify the bottleneck in your application, or processes?  Even better, be alerted when there is a change in the baseline performance?  Perhaps you are a Site Reliability Engineer (SRE) and need a Service Level Indicator (SLI) to determine if customers expectations are being met?* 
+*Wouldn't it be great if you can easily identify the bottleneck in your application, or processes?  Even better, be alerted when there is a change in the baseline performance?* 
 
 This article will demonstrate how you can achieve this, using OpenCensus and StackDriver tracing within Google Cloud.
 
