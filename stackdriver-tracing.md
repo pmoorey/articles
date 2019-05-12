@@ -26,13 +26,13 @@ _Example trace for a web request, which includes multiple spans for various oper
 
 ## Tracing for IT automation processes
 
-I frequently develop software solutions to automate IT processes in the domain of computer networking.  This led to me explore how I can gain visibility into the performance and reliability of the automation using tracing.  Tracing can be used to create alerts if a problem occurs with a particular process, such as a failure or performance change.
+I frequently develop software solutions to automate IT processes in the domain of computer networking.  This led to me explore how I can gain visibility into the performance and reliability of automation.  Tracing can be used to create alerts if a problem occurs with a particular process, such as a failure or performance change.
 
 A typical automation process may involve the several stages, for example:
 - Retrieving data from a master data source
 - Retrieving data from an IT system
 - Comparing data in both systems
-- Performing multiple CRUD operations in IT system
+- Performing multiple create/read/update/delete (CRUD) operations in IT system
 - Generating a report of changes
 
 The following section demonstrates how to enabling tracing within a simple Python script, including sending traces to StackDriver in Google Cloud Platform (GCP).
