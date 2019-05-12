@@ -112,15 +112,20 @@ if __name__ == '__main__':
 ### Google Cloud StackDriver Trace
 
 **Waterfall chart**
+
 After executing the script the first trace is now visible in StackDriver Trace in Google Cloud.  As you can see, the parent process is named 'it-process', followed by 'it-process/get-master-data', 'it-process/get-it-system-data' etc.  This chart highlight each operation in script, along with the time taken.
 
 ![Google Cloud trace waterfall](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-waterfall.png)
 
 **Scatter graph**
+
 The scatter graph is useful for spotting outliers, where an operation has taken a longer than usual time to process.  In the graph there is clearly an issue around 9.54pm.  Selecting the data point will display the waterfall chart, along with the operation which introduced the delay.
+
 ![Google Cloud trace scatter graph](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-scatter-graph.png)
 
+**Analysis Report**
 
+You can create customized reports to gain insights into your trace data, for example viewing percentage of traces by distribution of response time.
 
 ![Google Cloud trace report](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-report.png)
 
