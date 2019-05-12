@@ -1,45 +1,44 @@
 # Tracing and Metrics with OpenCensus and Google Cloud/StackDriver
 
 ## Overview
-*Wouldn't it be useful to be able to easily identify the bottleneck in your web application, or processes?  Even better, to be alerted when there is a change in the baseline performance?  Perhaps you are a Site Reliability Engineer (SRE) and need a Service Level Indicator (SLI) to determine if you are meeting your customers expectations.* 
+*Wouldn't it be useful to easily identify the bottleneck in your web application, or processes?  Even better, be alerted when there is a change in the baseline performance?  Perhaps you are a Site Reliability Engineer (SRE) and need a Service Level Indicator (SLI) to determine if customers expectations are being met?.* 
 
 This article will explain how you can do this, using OpenCensus and StackDriver tracing within Google Cloud.
 
 ## What is tracing anyway?
 
-A trace is a description or visualization which shows how a request flows through the various components of a system.  It typically includes data like processing time (latency) at various stages, enabling a waterfall view of the complete processing time, similar to the view provided by developer tools within a web browser like Google Chrome.
+A trace is a description or visualization which shows how a request flows through the various components of a system.  It typically includes data such as processing time (latency) at various stages.  This enables a waterfall view of the processing times, similar to the view provided by developer tools within a web browser like Google Chrome.
 
-_Waterfall chart in Chrome developer tools is conceptually similar_
+_The waterfall chart in Chrome developer tools is conceptually similar to a trace_
 ![Google Chrome waterfall chart](https://github.com/pmoorey/articles/blob/master/img/tracing/chrome-waterfall.png)
 
 ## What components are involved in tracing?
 
-Tracing is enabled in the source code of an application.  A popular library for tracing is OpenCensus, which originated from an internal Google product called Census.  It integrates with various programming langauges, with support for exporting to various backends including Google StackDriver, Prometheus, SignalFx and Zipkin. 
+Tracing is enabled within the source code of an application.  A popular tracing library is OpenCensus which originated from Google's internal product called Census.  It integrates with various programming langauges and includes support for exporting traces to various backends including Google StackDriver, Prometheus, SignalFx and Zipkin. 
 
-_Example tracing architecture diagram_ 
+_Sample architecture diagram for tracing_ 
 ![Tracing architecture diagram](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-architecture.png)
 
-A trace represents a single request as it flows through a system, and includes one parent 'span', and optionally one or more child spans.  A span represents one or more operations in a trace, for example a database query, HTTP request to an API, or function within the source code.
+A trace represents a single request as it flows through a system, it includes one parent 'span', and optionally one or more child spans.  A span represents one or more operations in a trace, for example a database query, HTTP request to an API, or function within the source code.
 
 _Example trace for a web request, which includes multiple spans for various operations_ 
 ![Tracing architecture diagram](https://github.com/pmoorey/articles/blob/master/img/tracing/trace-example.png)
 
 ## Tracing for IT automation processes
 
-I frequently develop software solutions to automate IT processes in the domain of computer networking.  This led to me explore how I can gain visibility into the performance and reliability of the automation using tracing.  Using tracing enabled alerting if a problem occurs with a particular process, such as a failure or performance change.
+I frequently develop software solutions to automate IT processes in the domain of computer networking.  This led to me explore how I can gain visibility into the performance and reliability of the automation using tracing.  Tracing enables alerting if a problem occurs with a particular process, such as a failure or performance change.
 
 A typical automation process may involve the several stages, for example:
+- Retrieving data from master data source
+- Retrieving data from IT system
+- Analyzing data in both systems
+- Performing CRUD operations in IT system (multiple iterations)
+- Generating report of changes
 
-- Retrieve data from master data source
-- Retrieve data from IT system
-- Analyze data in both systems
-- Perform CRUD operations in IT system (multiple iterations)
-- Generate report of changes
-
-I'll show how to enabling tracing for an IT process within a simple Python script, including sending the traces to StackDriver in Google Cloud Platform (GCP) and creating metrics.
+I'll show how to enabling tracing for an IT process within a simple Python script, including sending traces to StackDriver in Google Cloud Platform (GCP) and creating metrics.
 
 ### Prerequisites
-The following items are required:
+The following items are required to implement the solution:
 - Google Cloud project, with service account (Cloud Trace Agent IAM role assigned)
 - Python libaries for OpenCensus, including exporter for StackDriver
 - Source code (the process to enable tracing for)
@@ -77,23 +76,22 @@ def get_it_system_data()
        return data
 
 def sync_data(master_data, it_system_data)
-   # creates third child span, everything executing within the function is measured
-   with tracer.span(name="/it-process/get-master-data") as span:
-       data = some_function_to_sync_data()
-       return data
-
-def generate_report(results)
-   report = []
+   results = []
    for item in data:
-       # creates fourth child span for each item, everything executed in the block below is measured
-       with tracer.span(name="/it-process/get-master-data") as span:
-           response = some_function_to_generate_report(item)
-           report.append(response)
+       # creates third child span for each item, everything executed in the block below is measured
+       with tracer.span(name="/it-process/sync-data") as span:
+           response = some_function_to_sync_data()
+           results.append(response)
            
            # create an annotation to show what item is being processed
            span.add_annotation("processing item {}".format(item))
-           
-   return report
+       return results
+
+def generate_report(results)
+    # creates fourth child span for each item, everything executed in the block below is measured
+    with tracer.span(name="/it-process/generate-report") as span:
+        report = some_function_to_generate_report(item)
+    return report
 
 
 if __name__ == '__main__':
