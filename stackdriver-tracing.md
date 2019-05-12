@@ -54,11 +54,11 @@ pip install opencensus
 pip install opencensus-ext-stackdriver
 ```
 
-### Source Code
+### Sample source code
 
 Import the Python modules required to collect traces and export data to StackDriver
 
-```
+```python
 # import OpenCensus modules
 from opencensus.common.transports.async_ import AsyncTransport
 from opencensus.ext.stackdriver import trace_exporter as stackdriver_exporter
