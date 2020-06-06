@@ -1,4 +1,5 @@
 # Uploading Data to Google BigQuery using Python/Pandas
+<img src="https://miro.medium.com/max/1000/0*eDEy4S8zFfYnRt1X.png" width="300">
 
 ## The Goal
 I had a requirement to populate a Google BigQuery table from a CSV file containing 1,000 rows of data for each day spanning several weeks.  To make it a bit trickier, I had to create an extra column containing the date.  This would require a lot of clicking within the BigQuery website, and editing of data within Microsoft Excel.  Instead it was automated with Python by using Pandas and Google BigQuery libraries.
