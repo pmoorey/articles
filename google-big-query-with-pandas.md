@@ -17,6 +17,10 @@ Here's the process, see if you can spot the optimization that I should have made
    
 ### The Code
 
+Requirements:
+```pip3 install google-cloud-bigquery pyarrow pandas```
+
+Script:
 ```
 from google.cloud import bigquery
 import pandas as pd
