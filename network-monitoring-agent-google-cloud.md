@@ -2,7 +2,7 @@
 
 ## Overview
 
-This article provides a basic framework for building a remote network monitoring agent and using Google Cloud to ingest the data, visualize it and manage the overall solution.  The goal for building this was to learn about various cloud-native features in Google Cloud.
+This article provides a super basic framework for building a remote network monitoring agent and using Google Cloud to ingest the data, visualize it and manage the overall solution.  The goal for building this was to learn about various cloud-native features in Google Cloud.
 
 ## Objectives
 
@@ -18,7 +18,7 @@ The diagram below highlights the different systems and functions used to create 
 
 ## Remote Agent
 
-The agent will collect data about network performance using ICMP probes, but this could be extended to idea imaginable.  To make the agent portable I constructed a Docker image with Python and a few essential packages.  The container executes a Python script which starts the agent, continuously collects network performance data, and sends it to Google Cloud for processing.
+The agent will collect data about network performance using ICMP probes, but this could be extended to any idea imaginable.  To make the agent portable I constructed a Docker image with Python and a few essential packages.  The container executes a Python script which starts the agent, continuously collects network performance data, and sends it to Google Cloud for processing.
 
 _Probe functionality_
 
