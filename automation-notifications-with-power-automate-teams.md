@@ -101,7 +101,7 @@ Okay, almost done.  The final thing we need to do is send the notification.  In 
 
 ## Finale
 
-Now we are ready to test! From your automation process send the JSON document to the webhook URL provided in step 1 of the Microsoft Flow.  In the example below I am triggering the flow from Python:
+Now we are ready to test! From your automation process send the JSON document to the webhook URL provided in step 1 of the Power Automate flow.  In the example below I am triggering the flow from Python:
 
 ```
 import requests
@@ -122,7 +122,7 @@ requests.post(url=url, data=json.dumps(automation_result))
 
 ```
 
-If successful, you should see a desktop alert from Microsoft Teams, and a message in Teams from Power Automate.
+If successful, you should see a desktop alert from Microsoft Teams, and a message from Power Automate.
 
 |Microsoft Teams Notification | Microsoft Teams Message |
 | ------------- | ------------- |
