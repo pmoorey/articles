@@ -77,7 +77,7 @@ At this point you need to think about the data you wish to communicate to the en
 </table>
 
 At this point you should have the first step in your process complete:
-
+!(Step 1)[https://github.com/pmoorey/articles/blob/master/img/flow-step1.jpg]
 
 
 
