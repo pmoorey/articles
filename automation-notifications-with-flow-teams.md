@@ -77,7 +77,14 @@ At this point you need to think about the data you wish to communicate to the en
 </table>
 
 At this point you should have the first step in your process complete:
-!(Step 1)[https://github.com/pmoorey/articles/blob/master/img/flow-step1.jpg]
+![Step 1](https://github.com/pmoorey/articles/blob/master/img/flow-step1.jpg)
+
+## Step 2 - Create an Adaptive Card (optional)
+
+Why not make things look pretty, and use an Adaptive Card.  Adaptive Cards are a "platform-agnostic snippets of UI, authored in JSON, that apps and services can openly exchange".  Cards can be informational, or even interactive with form elements and buttons.  Learn more about Adaptive Cards at https://adaptivecards.io/.  To get some inspiration go to https://adaptivecards.io/samples/.
+
+Let's begin designing our card using the web application at https://adaptivecards.io/designer/.  Add whatever components you wish, and put in some example data.  Later on we'll replace this with the variables that are provided by Flow from the JSON document your automation process sends to the webhook.
+
 
 
 
