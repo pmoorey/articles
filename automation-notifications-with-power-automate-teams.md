@@ -1,13 +1,13 @@
-# Automation notifications with Microsoft Flow and Teams
+# Automation notifications with Microsoft Power Automate and Teams
 
 This article is a quick explanation of how you can add easily feedback to your automation processes.  It is extremely simple and effective and can be modified to suit whatever your requirements might be.
 
-## Step 1 - Create a Microsoft Flow
+## Step 1 - Create a Microsoft Power Automate Flow
 
-Microsoft Flow is an excellent tool for creating simple integrations between different systems.  In this case we will use it to communicate the outcome of an automation process to Microsoft Teams.  Start by go to https://flow.microsoft.com/ and create a new flow. Choose 'When a HTTP request is received' as your input, this will create a webhook (unique URL) which you can post data to.
+Microsoft Power Automate is an excellent tool for creating simple integrations between different systems.  In this case we will use it to communicate the outcome of an automation process to Microsoft Teams.  Start by go to https://flow.microsoft.com/ and create a new flow. Choose 'When a HTTP request is received' as your input, this will create a webhook (unique URL) which you can post data to.
 
 ### Define your data schema
-The webhook expects to receive a JSON document, you need to define the schema of the document in order for Flow to interpret the data and expose it as variables later in the process.  If you don't have a schema available, or don't want to write one, you can simply paste in a example JSON document and it will create the schema for you.  This works well for simple JSON documents.
+The webhook expects to receive a JSON document, you need to define the schema of the document in order for Power Automate to interpret the data and expose it as variables later in the process.  If you don't have a schema available, or don't want to write one, you can simply paste in a example JSON document and it will create the schema for you.  This works well for simple JSON documents.
 
 At this point you need to think about the data you wish to communicate to the end user, here's an example:
 
@@ -91,7 +91,7 @@ Here's what I came up with:
 
 ## Step 3 - Send the Notification
 
-Okay, almost done.  The final thing we need to do is send the notification.  In this case I will send it via a Teams Instant Message, but you could also post it to a Teams Channel.  Copy the JSON document describing your Adaptive Card from the designer app into the Flow Message field.  Replace the example values with the variables.  Click on 'Advanced' at the bottom of the stop to populate the message title and enable desktop alerts if you wish to do some.  Save the Flow.
+Okay, almost done.  The final thing we need to do is send the notification.  In this case I will send it via a Teams Instant Message, but you could also post it to a Teams Channel.  Copy the JSON document describing your Adaptive Card from the designer app into the flow Message field.  Replace the example values with the variables.  Click on 'Advanced' at the bottom of the stop to populate the message title and enable desktop alerts if you wish to do some.  Save the flow.
 
 |Add Action to Post Adaptive Card to User | Insert variables where required |
 | ------------- | ------------- |
@@ -120,7 +120,7 @@ requests.post(url=url, data=json.dumps(automation_result))
 
 ```
 
-If successful, you should see a desktop alert from Microsoft Teams, and a message in Teams from Flow.
+If successful, you should see a desktop alert from Microsoft Teams, and a message in Teams from Power Automate.
 
 |Microsoft Teams Notification | Microsoft Teams Message |
 | ------------- | ------------- |
