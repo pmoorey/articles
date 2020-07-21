@@ -1,13 +1,13 @@
 # Automation notifications with Microsoft Flow and Teams
 
-This article is a quick explaination of how you can add easily feedback to your automation processes.  This is extremely simple and effectively, and can be modified to suit whatever your requirements might be.
+This article is a quick explanation of how you can add easily feedback to your automation processes.  It is extremely simple and effective and can be modified to suit whatever your requirements might be.
 
 ## Step 1 - Create a Microsoft Flow
 
-Microsoft Flow is an excellent tool for creating simple integrations between different systems.  In this case we'll use it to communicate the outcome of an automation process to Microsoft Teams.  Start by go to https://flow.microsoft.com/ and create a new flow. Choose 'When a HTTP request is received' as your input, this will create a webhook (unique URL) which you can post data to.
+Microsoft Flow is an excellent tool for creating simple integrations between different systems.  In this case we will use it to communicate the outcome of an automation process to Microsoft Teams.  Start by go to https://flow.microsoft.com/ and create a new flow. Choose 'When a HTTP request is received' as your input, this will create a webhook (unique URL) which you can post data to.
 
 ### Define your data schema
-The webhook expects to recieve a JSON document, you need to define the schema of the document in order for Flow to interpet the data and expose it as variables later in the process.  If you don't have a schema available, or don't want to write one, you can simply paste in a example JSON document and it will create the schema for you.  This works well for simple JSON documents.
+The webhook expects to receive a JSON document, you need to define the schema of the document in order for Flow to interpret the data and expose it as variables later in the process.  If you don't have a schema available, or don't want to write one, you can simply paste in a example JSON document and it will create the schema for you.  This works well for simple JSON documents.
 
 At this point you need to think about the data you wish to communicate to the end user, here's an example:
 
@@ -83,7 +83,7 @@ At this point you should have the first step in your process complete:
 
 Why not make things look pretty, and use an Adaptive Card.  Adaptive Cards are a "platform-agnostic snippets of UI, authored in JSON, that apps and services can openly exchange".  Cards can be informational, or even interactive with form elements and buttons.  Learn more about Adaptive Cards at https://adaptivecards.io/.  To get some inspiration go to https://adaptivecards.io/samples/.
 
-Let's begin designing our card using the web application at https://adaptivecards.io/designer/.  Add whatever components you wish, and put in some example data.  Later on we'll replace this with the variables that are provided by Flow from the JSON document your automation process sends to the webhook.
+Let's begin designing our card using the web application at https://adaptivecards.io/designer/.  Add whatever elements you wish and insert some example data.  Later we'll replace this with the variables that are provided by Flow from the JSON document your automation process sends to the webhook.
 
 Here's what I came up with:
 
@@ -91,7 +91,7 @@ Here's what I came up with:
 
 ## Step 3 - Send the Notification
 
-Okay, almost done.  The final thing we need to do is send the notification.  In this case I will send it via a Teams Instant Message, but you could also post it to a Teams Channel.  
+Okay, almost done.  The final thing we need to do is send the notification.  In this case I will send it via a Teams Instant Message, but you could also post it to a Teams Channel.  Copy the JSON document describing your Adaptive Card from the designer app into the Flow Message field.  Replace the example values with the variables.  Click on 'Advanced' at the bottom of the stop to populate the message title and enable desktop alerts if you wish to do some.  Save the Flow.
 
 |Add Action to Post Adaptive Card to User | Insert variables where required |
 | ------------- | ------------- |
@@ -122,7 +122,7 @@ requests.post(url=url, data=json.dumps(automation_result))
 
 If successful, you should see a desktop alert from Microsoft Teams, and a message in Teams from Flow.
 
-|Add Action to Post Adaptive Card to User | Insert variables where required |
+|Microsoft Teams Notification | Microsoft Teams Message |
 | ------------- | ------------- |
 |![](https://github.com/pmoorey/articles/blob/master/img/flow-alert.jpg) | ![](https://github.com/pmoorey/articles/blob/master/img/flow-msg.jpg) |
 
