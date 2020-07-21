@@ -1,5 +1,7 @@
 # Automation notifications with Microsoft Power Automate and Teams
 
+![](https://github.com/pmoorey/articles/blob/master/img/notification-process.jpg)
+
 This article is a quick explanation of how you can add easily feedback to your automation processes.  It is extremely simple and effective and can be modified to suit whatever your requirements might be.
 
 ## Step 1 - Create a Microsoft Power Automate Flow
