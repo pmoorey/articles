@@ -85,6 +85,47 @@ Why not make things look pretty, and use an Adaptive Card.  Adaptive Cards are a
 
 Let's begin designing our card using the web application at https://adaptivecards.io/designer/.  Add whatever components you wish, and put in some example data.  Later on we'll replace this with the variables that are provided by Flow from the JSON document your automation process sends to the webhook.
 
+Here's what I came up with:
+
+![](https://github.com/pmoorey/articles/blob/master/img/adaptive%20card.jpg)
+
+## Step 3 - Send the Notification
+
+Okay, almost done.  The final thing we need to do is send the notification.  In this case I will send it via a Teams Instant Message, but you could also post it to a Teams Channel.  
+
+|Add Action to Post Adaptive Card to User | Insert variables where required |
+| ------------- | ------------- |
+|![](https://github.com/pmoorey/articles/blob/master/img/flow-step2-1.jpg) | ![](https://github.com/pmoorey/articles/blob/master/img/flow-step2-2.jpg) |
+
+## Finale
+
+Now we are ready to test! From your automation process send the JSON document to the webhook URL provided in step 1 of the Microsoft Flow.  In the example below I am triggering the flow from Python:
+
+```
+import requests
+import json
+
+automation_result = {
+    "id": "2425",
+    "requestor": "user@company.com",
+    "result": "Succeeded",
+    "data": {
+        "device_name": "router-xyz",
+        "interface": "GigabitEthernet1/0/33",
+        "vlan": "printers"
+    }
+}
+url = "https://prod-123.westeurope.logic.azure.com:443/workflows/235cb58..."
+requests.post(url=url, data=json.dumps(automation_result))
+
+```
+
+If successful, you should see a desktop alert from Microsoft Teams, and a message in Teams from Flow.
+
+|Add Action to Post Adaptive Card to User | Insert variables where required |
+| ------------- | ------------- |
+|![](https://github.com/pmoorey/articles/blob/master/img/flow-alert.jpg) | ![](https://github.com/pmoorey/articles/blob/master/img/flow-msg.jpg) |
+
 
 
 
