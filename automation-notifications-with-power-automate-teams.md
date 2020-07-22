@@ -83,7 +83,7 @@ At this point you should have the first step in your process complete:
 
 ## Step 2 - Create an Adaptive Card (optional)
 
-Why not make things look pretty, and use an Adaptive Card.  Adaptive Cards are a "platform-agnostic snippets of UI, authored in JSON, that apps and services can openly exchange".  Cards can be informational, or even interactive with form elements and buttons.  Learn more about Adaptive Cards at https://adaptivecards.io/.  To get some inspiration go to https://adaptivecards.io/samples/.
+Why not make things look pretty, and use an Adaptive Card.  Adaptive Cards are "platform-agnostic snippets of UI, authored in JSON, that apps and services can openly exchange".  Cards can be informational, or even interactive with form elements and buttons.  Learn more about Adaptive Cards at https://adaptivecards.io/.  To get some inspiration go to https://adaptivecards.io/samples/.
 
 Let's begin designing our card using the web application at https://adaptivecards.io/designer/.  Add whatever elements you wish and insert some example data.  Later we'll replace this with the variables that are provided by Flow from the JSON document your automation process sends to the webhook.
 
