@@ -2,11 +2,11 @@
 
 ![](https://github.com/pmoorey/articles/blob/master/img/notification-process.jpg)
 
-This article provides a quick explanation of how you can add easily feedback into your automation processes.  It is extremely simple and effective and can be modified to suit whatever your requirements might be.
+This article provides a quick explanation of how you can easily add feedback into your automation processes.  It is extremely simple and effective and can be modified to suit whatever your requirements might be.
 
 ## Step 1 - Create a Microsoft Power Automate Flow
 
-Microsoft Power Automate is an excellent tool for creating simple integrations between different systems.  In this case we will use it to communicate the outcome of an automation process to Microsoft Teams.  Start by go to https://flow.microsoft.com/ and create a new flow. Choose 'When a HTTP request is received' as your input, this will create a webhook (unique URL) which you can post data to.
+Microsoft Power Automate is an excellent tool for creating simple integrations between different systems.  In this case we will use it to communicate the outcome of an automation process to Microsoft Teams.  Start by going to https://flow.microsoft.com/ and create a new flow. Choose 'When a HTTP request is received' as your input, this will create a webhook (unique URL) which you can post data to.
 
 ### Define your data schema
 The webhook expects to receive a JSON document, you need to define the schema of the document in order for Power Automate to interpret the data and expose it as variables later in the process.  If you don't have a schema available, or don't want to write one, you can simply paste in a example JSON document and it will create the schema for you.  This works well for simple JSON documents.
