@@ -10,3 +10,6 @@ https://github.com/pmoorey/articles/blob/master/network-monitoring-agent-google-
 
 ### Uploading Data to Google BigQuery using Python/Pandas:
 https://github.com/pmoorey/articles/blob/master/google-big-query-with-pandas.md
+
+### Automation notifications with Microsoft Power Automate and Teams
+https://github.com/pmoorey/articles/blob/master/automation-notifications-with-power-automate-teams.md
