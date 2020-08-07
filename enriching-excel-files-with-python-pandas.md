@@ -2,17 +2,15 @@
 
 I was asked my one of my colleagues to discover the location of ~2,000 network endpoints.  He provided a detailed Excel document which included the IPv4 address of each endpoint.  To translate the IP addresses to locations I used a web service/API which accepted an IP address as input and responded with the location.  I'm not aware of a way to make API calls natively with Excel, perhaps it can be done with TypeScript in Excel, I'm not sure. Anyway, I used Python and 'pandas' data analysis library...
 
-To learn about <a href="https://pandas.pydata.org/" target="_blank">pandas</a> I recommend the official documentation, it's excellent and easy to understand. 
-https://pandas.pydata.org/docs/index.html
+To learn about <a href="https://pandas.pydata.org/" target="_blank">pandas</a> I recommend the <a href="https://pandas.pydata.org/docs/index.html" target="_blank">official documentation</a>, it's well written and easy to understand. 
+
 
 ![Image of Yaktocat](https://miro.medium.com/max/700/1*fdZiokZzHRCkoMLgrn0tpw.jpeg)
 <br>*Photo courtesy of https://www.chinadaily.com.cn/*
 
 ## Preparation
 
-First, you'll need Python and Python PIP (package manager).  You can get python from <a href="https://www.python.org/downloads/" target="_blank">here</a>.  Instructions for installing Python PIP are available <a href="https://pip.pypa.io/en/stable/installing/" target="_blank">here</a>.
-
-Next, create a requirements file, we'll need a few Python modules that are not built-in:
+First, you'll need Python and Python PIP (package manager).  You can get python from <a href="https://www.python.org/downloads/" target="_blank">here</a>.  Instructions for installing Python PIP are available <a href="https://pip.pypa.io/en/stable/installing/" target="_blank">here</a>.  Next, create a requirements file, we'll need a few Python modules that are not built-in:
 
 *requirements.txt*
 ```
@@ -22,7 +20,7 @@ xlrd
 openpyxl
 ```
 
-Next install the modules using Python PIP:
+Install the modules using Python PIP:
 
 ```pip install -r requirements.txt```
 
