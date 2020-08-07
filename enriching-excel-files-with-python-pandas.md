@@ -6,6 +6,7 @@ To learn about <a href="https://pandas.pydata.org/" target="_blank">pandas</a> I
 https://pandas.pydata.org/docs/index.html
 
 ![Image of Yaktocat](https://miro.medium.com/max/700/1*fdZiokZzHRCkoMLgrn0tpw.jpeg)
+<br>*Photo courtesy of https://www.chinadaily.com.cn/*
 
 ## Preparation
 
