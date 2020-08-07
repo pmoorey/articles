@@ -5,7 +5,7 @@ I was asked my one of my colleagues to discover the location of ~2,000 network e
 To learn about Pandas I recommend the official documentation, it's excellent and easy to understand. 
 https://pandas.pydata.org/docs/index.html
 
-## Preperation
+## Preparation
 
 First, you'll need Python and Python PIP (package manager).  You can get python from <a href="https://www.python.org/downloads/" target="_blank">here</a>.  Instructions for installing Python PIP are available <a href="https://pip.pypa.io/en/stable/installing/" target="_blank">here</a>.
 
@@ -19,7 +19,7 @@ xlrd
 openpyxl
 ```
 
-Next install them using Python PIP:
+Next install the modules using Python PIP:
 
 ```pip install -r requirements.txt```
 
@@ -31,11 +31,12 @@ High level process:
 - Get the data from the IPv4 Address column
 - Loop over each IP address and call the web service to get the location
 - Store the locations in a list
-- Create a new column in the dataframe and assign the location values
+- Create a new column in the data frame and assign the location values
 - Save the data frame as a new file
 
 Here's the Python script, hopefully you can follow the comments to understand the flow.  
 
+*excel-enrichment.py*
 ```
 import requests
 import pandas as pd
@@ -100,7 +101,7 @@ if __name__ == '__main__':
 
 ```
 
-Whilst it executes you will see output like:
+Whilst it executes you will see output like the example below, and a new Excel document will be created in the same folder as your script:
 
 ```
 12/1798: 10.200.4.202 --> mylocation1
