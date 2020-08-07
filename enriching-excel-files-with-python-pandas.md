@@ -5,6 +5,8 @@ I was asked my one of my colleagues to discover the location of ~2,000 network e
 To learn about Pandas I recommend the official documentation, it's excellent and easy to understand. 
 https://pandas.pydata.org/docs/index.html
 
+![Image of Yaktocat](https://miro.medium.com/max/700/1*fdZiokZzHRCkoMLgrn0tpw.jpeg)
+
 ## Preparation
 
 First, you'll need Python and Python PIP (package manager).  You can get python from <a href="https://www.python.org/downloads/" target="_blank">here</a>.  Instructions for installing Python PIP are available <a href="https://pip.pypa.io/en/stable/installing/" target="_blank">here</a>.
