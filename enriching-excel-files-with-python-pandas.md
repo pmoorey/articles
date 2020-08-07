@@ -107,7 +107,7 @@ Whilst it executes you will see output like the example below, and a new Excel d
 12/1798: 10.200.4.202 --> mylocation1
 13/1798: 10.200.4.204 --> mylocation1
 14/1798: 10.200.4.206 --> mylocation6
-15/1798: 10.100.99.201 --> mylocation96
+15/1798: 10.100.99.201 --> mylocation9
 16/1798: 10.200.5.205 --> mylocation8
 17/1798: 10.200.4.198 --> mylocation1
 18/1798: 10.200.4.199 --> mylocation1
