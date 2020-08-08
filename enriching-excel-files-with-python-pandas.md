@@ -1,6 +1,6 @@
 # Enriching Excel Files with Python Pandas
 
-I was asked by one of my colleagues to discover the locations of ~2,000 network endpoints in a global enterprise network.  They provided a detailed Excel document which included the IPv4 address of each endpoint.  To translate the IP addresses to locations I used a web service/API which accepted an IP address as input and responded with the location.  I'm not aware of a way to make API calls natively with Excel, perhaps it can be done with TypeScript in Excel, I'm not sure. Anyway, I used Python and 'pandas' data analysis library to update the Excel document with each individual location automatically.  
+I was asked by one of my colleagues to discover the locations of ~2,000 endpoints in a global enterprise network.  They provided a detailed Excel document which included the IPv4 address of each endpoint.  To translate the IP addresses to locations I used a web service/API which accepted an IP address as input and responded with the location.  I'm not aware of a way to make API calls natively with Excel, perhaps it can be done with TypeScript in Excel, I'm not sure. Anyway, I used Python and 'pandas' data analysis library to update the Excel document with each individual location automatically.  
 
 The script took 12 minutes to write, performing the task manually wouldn't have been possible, given the effort required.
 
