@@ -40,7 +40,7 @@ High level process:
 Here's the Python script, hopefully you can follow the comments to understand the flow.  
 
 *excel-enrichment.py*
-```
+```python
 import requests
 import pandas as pd
 import logging
